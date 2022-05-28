@@ -79,13 +79,12 @@ body{
 
 .header--bottom{
     width: 90%;
+    margin: 40px auto 40px auto;
     padding: 10px 70px;
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
-    justify-content: center;
     display: flex;
     font-size: 18px;
-    margin: 40px;
 
 }
 .header--bottom__ele{
