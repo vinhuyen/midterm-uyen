@@ -19,8 +19,8 @@ ExtraNews.propTypes = {
 function ExtraNews(props) {
     return(
         <div className="extra__news text">
-            <p className="extra__news_date">28 May 2022</p>
-            <h2 className="extra__news__title">Former Louvre director Jean-Luc Martinez questioned by police as part of probe into alleged antiquities trafficking ring</h2>
+            <p className="extra__news_date">{props.data.date}</p>
+            <h2 className="extra__news__title">{props.data.title}</h2>
         </div>
     )
 }

@@ -13,21 +13,21 @@ HotNews.propTypes ={
         title: PropTypes.string.isRequired,
         author:PropTypes.string.isRequired,
     }),
-    event: PropTypes.shape({
-
-    })
+    // event: PropTypes.shape({
+    //
+    // })
 }
 
 function HotNews(props) {
     return(
         <div className={`text ${props.htmlAttribute.className}`}>
             <div className="image__wrapper">
-                <img  src={props.data.image}
-                      className="image__news" alt=""/>
+                <img src={props.data.image}
+                     className="image__news" alt=""/>
             </div>
-            <h2 className="title__news">Georgian galleries unite for first Tbilisi Gallery Weekend in support of Ukraine</h2>
-            <p className="content__news">Georgian galleries unite for first Tbilisi Gallery Weekend in support of Ukraine</p>
-            <p className="author">Dzinh Yen</p>
+            <h2 className="title__news">{props.data.title}</h2>
+            <p className="content__news">{props.data.content}</p>
+            <p className="author">{props.data.author}</p>
         </div>
     )
 }

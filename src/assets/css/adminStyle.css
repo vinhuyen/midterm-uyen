@@ -1,0 +1,147 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,200;1,300;1,600&display=swap');
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul, a {
+    list-style: none;
+    text-decoration: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+img{
+    object-fit: cover;
+    display: block;
+}
+body{
+    font-family: 'Josefin Slab', serif;
+}
+
+a{
+    color: #739931;
+}
+.container__admin{
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+    padding: 1em;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAQElEQVQIW2P89OvDfwYo+PHjJ4zJwMHBzsAIk0SXAKkCS2KTAEu++vQSbizIKGQAl0SXAJkGlsQmAbcT2Shk+wH0sCzAEOZW1AAAAABJRU5ErkJggg==);
+
+}
+table th,
+table td{
+    text-align: left;
+}
+table.layout{
+    width: 100%;
+    border-collapse: collapse;
+}
+table.display{
+    margin: 1em 0;
+}
+table.display th,
+table.display td{
+    border: 1px solid #B3BFAA;
+    padding: .5em 1em;
+}
+
+table.display th{ background: #D5E0CC; }
+table.display td{ background: #fff; }
+
+table.responsive-table{
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+table{
+    border: 1px solid grey;
+}
+
+td, th{
+    padding: 10px;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+
+}
+
+.thead{
+    background-color: green;
+    height: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+.img__display{
+    width: 100px;
+}
+
+label{
+    display: flex;
+    width: 50%;
+    margin: 5px;
+}
+input{
+    width: 500px;
+    height: 30px;
+    border: 1px solid green;
+}
+
+input:focus{
+    border: 1px solid deeppink;
+}
+.name__tag{
+    width: 200px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.btn--add{
+    width: 200px;
+    margin-left: 205px;
+    height: 40px;
+    background-color: yellow;
+    border: 1px solid pink;
+}
+
+.btn--create{
+    width: 100px;
+    height: 30px;
+    background-color: yellow;
+    border: 1px solid pink;
+    margin: 20px;
+}

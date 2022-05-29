@@ -1,26 +1,17 @@
-import React from 'react';
-import {db} from "./firebase-config";
-import {collection, getDocs, addDoc, updateDoc, deleteDoc, doc,} from "@firebase/firestore"
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from 'react';
+import {db} from "../firebase-config";
+import {collection, getDocs, deleteDoc, doc} from "@firebase/firestore";
+import "../assets/css/adminStyle.css";
+import * as Icon from "react-icons/ri";
 
 
 function Admin() {
-    const [newTitle, setNewTitle] = useState("");
-    const [newContent, setNewContent] = useState("");
-    const [newImage, setNewImage] = useState("");
-    const [newAuthor, setNewAuthor] = useState("");
-    const [newDate, setNewDate] = useState("");
 
-    const [news, setNews] = useState([]);
+    const [data, setData] = useState({
+        newsList: [],
+        isLoaded: false
+    });
     const newsCollectionRef = collection(db, "news");
-
-    const createNew = async () => {
-        await addDoc(newsCollectionRef, {title: newTitle, content: newContent, author: newAuthor, image: newImage, date: newDate});
-    };
-
-    const updateNew = async (id, title, content, author, image, date) => {
-
-    }
 
 
     const deleteNew = async (id) => {
@@ -30,35 +21,62 @@ function Admin() {
 
     useEffect(() => {
         const getNews = async () => {
-            const data = await getDocs(newsCollectionRef);
-            setNews(data.docs.map((doc => ({...doc.data(), id: doc.id}))));
+          const data = await getDocs(newsCollectionRef);
+          setData({
+              newsList: data.docs.map((doc => ({...doc.data(), id: doc.id}))),
+              isLoaded: true
+          });
         }
-        getNews();
-    }, [])
-
+        if (!data.isLoaded) {
+            getNews()
+        }
+    }, [data.isLoaded, newsCollectionRef])
     return(
-        <div className="container__admin">
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Content</th>
-                    <th>Image</th>
-                    <th>Date</th>
-                    <th>Author</th>
-                </tr>
-                <tr>
-                    {news.map((ele) => {
-                        return (
-                            <div key={ele.id}>
-                                {ele.title}
-                                <br/>
-                                {ele.content}
-                            </div>
-                        )
-                    })}
-                </tr>
-            </table>
-        </div>
+        data.isLoaded
+            ?
+            (
+                <div className="container__admin">
+                    <button className="btn--create">Create New</button>
+                    <table>
+                        <thead>
+                            <tr className="thead">
+                                <th>ID</th>
+                                {/*<th>CategoryID</th>*/}
+                                <th>Title</th>
+                                <th>Content</th>
+                                <th>Image</th>
+                                <th>Date</th>
+                                <th>Author</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                            <tbody>
+                                {
+                                    data.newsList.map((ele, index) => (
+                                        <tr className="data__display" key={index}>
+                                            <td>{ele.id}</td>
+                                            {/*<td>{ele.categoryID}</td>*/}
+                                            <td>{ele.title}</td>
+                                            <td>{ele.content}</td>
+                                            <td><img className="img__display" src={ele.image} alt=""/></td>
+                                            <td>{ele.date}</td>
+                                            <td>{ele.author}</td>
+                                            <td>
+                                                <Icon.RiEditBoxFill/>
+                                                <Icon.RiDeleteBin6Fill onClick={ () => {
+                                                    deleteNew(ele.id)
+                                                    setData({...data, isLoaded: false})
+                                                }}/>
+                                            </td>
+                                        </tr>
+                                    )
+                                )}
+                            </tbody>
+                    </table>
+                </div>
+            )
+            : <div>Loading...</div>
     )
 }
+
+export default Admin;
