@@ -1,9 +1,9 @@
 import HotNews from "./HotNews";
 import ExtraNews from "./ExtraNews";
+import BeCaredNews from "./BeCaredNews"
 import {useState, useEffect} from 'react';
 import {collection, getDocs, deleteDoc, doc} from "@firebase/firestore";
 import {db} from "../firebase-config";
-
 
 function NewsProps(className ,data){
     return {
@@ -14,31 +14,6 @@ function NewsProps(className ,data){
         data: data
     }
 }
-//
-// const mainNews = {
-//     htmlAttribute: {
-//         className: 'secondary__news',
-//         id: '',
-//     },
-//     data: {
-//         image: 'https://cdn.sanity.io/images/cxgd3urn/production/5764bce0bbcb82788881e644a38f60fe9dcc13a3-2048x1448.jpg?rect=59,0,1931,1448&w=1920&h=1440&fit=crop&auto=format',
-//         content: 'Georgian galleries unite for first Tbilisi Gallery Weekend in support of Ukraine',
-//         title: 'Georgian galleries unite for first Tbilisi Gallery Weekend in support of Ukraine',
-//         author: 'Dzinh Yen',
-//     }
-// }
-//
-// const extraNews = {
-//     htmlAttribute: {
-//         className: 'extra__news',
-//         id: '',
-//     },
-//     data:{
-//         date: '26 May 2022',
-//         title: 'Georgian galleries unite for first Tbilisi Gallery Weekend in support of Ukraine',
-//         content: 'Georgian galleries unite for first Tbilisi Gallery Weekend in support of Ukraine'
-//     }
-// }
 
 const News = () => {
     const [hottestNews, setHottestNews] = useState({
@@ -47,6 +22,7 @@ const News = () => {
     });
     const [mainNews, setmainNews] = useState([]);
     const [extraNews, setExtraNews] = useState([]);
+    const [beCared, setbeCared] = useState([]);
 
     const newsCollectionRef = collection(db, "news");
 
@@ -59,15 +35,24 @@ const News = () => {
                 props: dataList[0]
             });
             setmainNews(dataList.slice(1, 5));
-            setExtraNews(dataList.slice(5));
+            setExtraNews(dataList.slice(5,9));
+            setbeCared(dataList.slice(8))
         }
         getNews()
     }, [])
 
     return(
         <div className="layout__container">
-            {hottestNews.isLoaded? <HotNews {...NewsProps('primary__news', hottestNews.props)}/> : 'test'}
+            <div>
+                {hottestNews.isLoaded? <HotNews {...NewsProps('primary__news', hottestNews.props)}/> : 'test'}
+                {
+                    beCared.map((ele, index) => {
+                        return <BeCaredNews key={index} {...NewsProps('be__cared_news', ele)}/>
+                    })
+                }
+            </div>
             {/*<HotNews {...NewsProps('primary__news', hottestNews.props)}/>*/}
+
             <div className="secondary-news__wrapper">
                 {
                     mainNews.map((ele, index) => {

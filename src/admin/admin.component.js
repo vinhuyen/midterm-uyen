@@ -3,10 +3,10 @@ import {db} from "../firebase-config";
 import {collection, getDocs, deleteDoc, doc} from "@firebase/firestore";
 import "../assets/css/adminStyle.css";
 import * as Icon from "react-icons/ri";
-
+import {useNavigate} from "react-router-dom"
 
 function Admin() {
-
+    const navigate = useNavigate()
     const [data, setData] = useState({
         newsList: [],
         isLoaded: false
@@ -62,7 +62,7 @@ function Admin() {
                                             <td>{ele.date}</td>
                                             <td>{ele.author}</td>
                                             <td>
-                                                <Icon.RiEditBoxFill/>
+                                                <Icon.RiEditBoxFill onClick={() => navigate(`/Admin/Update/${ele.id}`)}/>
                                                 <Icon.RiDeleteBin6Fill onClick={ () => {
                                                     deleteNew(ele.id)
                                                     setData({...data, isLoaded: false})

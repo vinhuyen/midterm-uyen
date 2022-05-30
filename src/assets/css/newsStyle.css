@@ -212,3 +212,6 @@ body{
 .primary__news.text{
     line-height: 40px;
 }
+.be__cared_news{
+    font-size: 13px;
+}

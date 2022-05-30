@@ -137,6 +137,9 @@ input:focus{
     background-color: yellow;
     border: 1px solid pink;
 }
+.btn--add:hover{
+    background-color: green;
+}
 
 .btn--create{
     width: 100px;

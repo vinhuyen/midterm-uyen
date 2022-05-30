@@ -6,7 +6,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 // import AddNew from "./admin/AddNew";
 import Admin from "./admin/admin.component";
 import AddNew from "./admin/AddNew";
-import UpdateNews from "./admin/UpdateNews";
+import UpdateNews from "./admin/EditNew";
 import News from "./components/Intro.component"
 
 

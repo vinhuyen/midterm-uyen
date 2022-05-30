@@ -45,7 +45,7 @@ function AddNew() {
     return(
         <form className="form__container" onSubmit={createNew}>
                 <div className="field">
-                    <label htmlFor="title">
+                    <label htmlFor="title">i
                         <div className="name__tag">
                             Title:
                         </div>
