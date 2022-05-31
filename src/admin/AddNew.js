@@ -49,7 +49,9 @@ function AddNew() {
                         <div className="name__tag">
                             Title:
                         </div>
-                        <input id="title" type="text" name="title" onChange = {getNewData}/>
+                        <input id="title" type="text"
+                               name="title"
+                               onChange = {getNewData}/>
                     </label>
                 </div>
                 <div className="field">
@@ -57,7 +59,9 @@ function AddNew() {
                         <div className="name__tag">
                             Content:
                         </div>
-                        <input id="content" type="text" name="content" onChange = {getNewData}/>
+                        <input id="content" type="text"
+                               name="content"
+                               onChange = {getNewData}/>
                     </label>
                 </div>
                 <div className="field">
@@ -65,7 +69,9 @@ function AddNew() {
                         <div className="name__tag">
                             Date Created:
                         </div>
-                        <input id="date" type="text" name="dateCreated" onChange = {getNewData}/>
+                        <input id="date" type="text"
+                               name="dateCreated"
+                               onChange = {getNewData}/>
                     </label>
                 </div>
                 <div className="field">
@@ -73,7 +79,9 @@ function AddNew() {
                         <div className="name__tag">
                             Author:
                         </div>
-                        <input id="author" type="text" name="author" onChange = {getNewData}/>
+                        <input id="author" type="text"
+                               name="author"
+                               onChange = {getNewData}/>
                     </label>
                 </div>
                 <div className="field">

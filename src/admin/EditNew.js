@@ -52,7 +52,10 @@ function UpdateNew() {
                             <div className="name__tag">
                                 Title:
                             </div>
-                            <input id="title" type="text" name="title" defaultValue={news.title} onChange = {getNewData}/>
+                            <input id="title" type="text"
+                                   name="title"
+                                   defaultValue={news.title}
+                                   onChange = {getNewData}/>
                         </label>
                     </div>
                     <div className="field">
@@ -60,7 +63,10 @@ function UpdateNew() {
                             <div className="name__tag">
                                 Content:
                             </div>
-                            <input id="content" type="text" name="content" defaultValue={news.content} onChange = {getNewData}/>
+                            <input id="content" type="text"
+                                   name="content"
+                                   defaultValue={news.content}
+                                   onChange = {getNewData}/>
                         </label>
                     </div>
                     <div className="field">
@@ -68,7 +74,10 @@ function UpdateNew() {
                             <div className="name__tag">
                                 Date Created:
                             </div>
-                            <input id="date" type="text" name="dateCreated" defaultValue={news.date} onChange = {getNewData}/>
+                            <input id="date" type="text"
+                                   name="dateCreated"
+                                   defaultValue={news.date}
+                                   onChange = {getNewData}/>
                         </label>
                     </div>
                     <div className="field">
@@ -76,7 +85,10 @@ function UpdateNew() {
                             <div className="name__tag">
                                 Author:
                             </div>
-                            <input id="author" type="text" name="author" defaultValue={news.author} onChange = {getNewData}/>
+                            <input id="author" type="text"
+                                   name="author"
+                                   defaultValue={news.author}
+                                   onChange = {getNewData}/>
                         </label>
                     </div>
                     <div className="field">
