@@ -36,7 +36,7 @@ const News = () => {
             });
             setmainNews(dataList.slice(1, 5));
             setExtraNews(dataList.slice(5,9));
-            setbeCared(dataList.slice(8))
+            setbeCared(dataList.slice(9))
         }
         getNews()
     }, [])
